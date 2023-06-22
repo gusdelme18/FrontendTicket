@@ -1,0 +1,28 @@
+<main class="form-signin">
+    <form  [formGroup]="form" (ngSubmit)="onSubmit()" >
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+  
+      <div class="form-floating">
+        <input type="email" class="form-control" formControlName="email" placeholder="name@example.com" 
+                style="cursor: auto; background-size: 20px 20px !important; background-position: 98% 50% !important; background-repeat: no-repeat !important; 
+                " required>
+        <label for="floatingInput">Email address</label>
+        <div *ngIf="!this.form.controls['email'].errors">
+            <div *ngIf="this.form.controls['email'].errors">Email is required </div>
+        </div>
+        
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" formControlName="password" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>  
+      <div *ngIf="!this.form.controls['password'].errors">
+        <div *ngIf="this.form.controls['password'].errors">Password is required </div>
+    </div>
+      
+      <button [disabled]="loading" type="submit" class="btn btn-primary" (click)="onSubmit()">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Login
+    </button>
+    </form>
+  </main>

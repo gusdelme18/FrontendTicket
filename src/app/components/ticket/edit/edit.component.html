@@ -1,0 +1,51 @@
+<main>
+
+    <div class="py-5 text-center">
+        <h2>Modificar tickets</h2>
+    </div>
+
+    <div class="row g-5">
+        <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">Modificar</h4>
+            <form class="needs-validation" novalidate="" [formGroup]="formTicket" (ngSubmit)="onSubmit()" >
+              <div class="row g-3">
+            
+    
+                <div class="col-12">
+                  <label for="titleTicket" class="form-label">Titulo Ticket</label>
+                  <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="titleTicket" placeholder="Name" required=""  formControlName="title" >
+                  <div class="invalid-feedback">
+                      El titulo del ticket es requerido.
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="col-12">
+                  <label for="tickeDesc" class="form-label">Descripcion</label>
+                  <input type="text" class="form-control" id="tickeDesc"  formControlName="description" >
+                  <div class="invalid-feedback">
+                    La descripción del ticket es requerida.
+                  </div>
+                </div>
+    
+                <div class="col-12">
+                  <label for="address" class="form-label">Disponibilidad</label>
+                  <select class="form-select" id="country" required="" formControlName="status" >
+                    <option value="">Choose...</option>
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+              </div>
+    
+              <hr class="my-4">
+    
+              <button class="w-100 btn btn-primary btn-lg" type="submit">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Modificar
+              </button>
+            </form>
+          </div>
+    </div>
+</main>

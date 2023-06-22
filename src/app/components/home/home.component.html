@@ -1,0 +1,39 @@
+<main>
+
+    <div class="py-5 text-center">
+        <h2>Tickets</h2>
+    </div>
+
+    <div class="row g-5">
+
+        <table class="table table-hover table-stripped">
+            <thead>
+                <tr>
+                    <th class="col-md-5">Ticket</th>
+                    <th>Disponible</th>
+                    <th>Usuario asignado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tick of tickets">
+
+                    <th scope="row">
+                        <a [routerLink]="['/ticket', tick.id]"> {{tick.title}} </a>
+                    </th>
+
+                    <td>
+                        <span *ngIf="tick.status == 'Si'">Si</span>
+                        <span *ngIf="tick.status != 'No'">No</span>
+                    </td>
+                    <td> {{tick.users_id}} </td>
+                    <td>
+                        <a [routerLink]="['/ticket', tick.id]" class="btn btn-warning">Editar</a>&nbsp;
+                        <a (click)="deleteTicket(tick.id)" class="btn btn-danger">Borrar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</main>
